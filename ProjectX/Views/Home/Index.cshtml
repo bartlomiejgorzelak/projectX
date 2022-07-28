@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using ProjectX.Resources
+@model ProjectX.Models.User
+
+<div>
+    @using (Html.BeginForm("index", "home"))
+    {
+        <div id="tablecontent">
+            <div>
+                <td>
+                    @Html.LabelFor(m => m.Name)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Name)
+                    @Html.ValidationMessageFor(m => m.Name, "*")
+                </td>
+            </div>
+            <div>
+                <td>
+                    @Html.LabelFor(m => m.Address)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Address)
+                    @Html.ValidationMessageFor(m => m.Address, "*")
+                </td>
+            </div>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value="save" />
+                    @Html.ValidationSummary()
+                </td>
+            </tr>
+        </div>
+    }
+</div>
+
+<style>
+    #tablecontent {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+</style>
